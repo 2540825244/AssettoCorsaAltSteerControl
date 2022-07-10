@@ -21,8 +21,24 @@ function script.update(dt)
         end
         goto AfterAngle
     end
-    angleRotation = math.atan(data.steerStickX/data.steerStickY)
-    --Should return the radian value of rotation of joystick position from origin. 0 being upright; >0 clockwise; <0 anticlockwise
+    local atan = math.abs(math.atan(data.steerStickX/data.steerStickY))
+    if data.steerStickX > 0 & data.steerStickY > 0 then
+        angleRotation = atan
+        goto AfterAngle
+    end
+    if data.steerStickX < 0 & data.steerStickY > 0 then
+        angleRotation = -atan
+        goto AfterAngle
+    end
+    if data.steerStickX > 0 & data.steerStickY < 0 then
+        angleRotation = pi - atan
+        goto AfterAngle
+    end
+    if data.steerStickX < 0 & data.steerStickY < 0 then
+        angleRotation = atan - pi
+        goto AfterAngle
+    end
+    --angleRotation should be the radian value of rotation of joystick position from origin. 0 being upright; >0 clockwise; <0 anticlockwise
 
     ::AfterAngle::
 
