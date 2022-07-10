@@ -35,3 +35,5 @@ You many notice there is another script that has the word Limited at the end. It
 This project is very rushed, you may even see it as a proof of concept. I actually had this concept a long time ago, but it is until hours ago that I realize I could make it into a thing with AC CSP scripts (I was watching Initial D so I picked up this game again btw). I may never update the project ever again but I would try to help whoever encounters a problem related.
 
 In the early thinking process I actually imagined a multi turn system where just like steering wheels you can rotate the stick in one direction multiple revolution to have a higher steering angle. But then I thought this would cause confusion and a hassle to implement I did not made it.
+
+Oh yeah btw if you find out you can never reach the max steering, that may be because you actually have a good controller unlike mine. My controller inputs coordinates of a square, not a circle so that's why I used a max length variable to work out the relative magnitude. If you encounter this problem try changing the max length to 1 manually in the script.
