@@ -14,10 +14,10 @@ function script.update(dt)
     end
     if data.steerStickY == 0 then
         if data.steerStickX > 0 then
-            angleRotation = pi/2
+            angleRotation = 0.5*pi
         end
         if data.steerStickX < 0 then
-            angleRotation = -(pi/2)
+            angleRotation = -(0.5*pi)
         end
         goto AfterAngle
     end
@@ -27,7 +27,7 @@ function script.update(dt)
     ::AfterAngle::
 
     local rotationMagnitude = angleRotation / steeringRange
-    if angleRotation > steeringRange then
+    if rotationMagnitude > 1 then
         rotationMagnitude = 0
     end
 
