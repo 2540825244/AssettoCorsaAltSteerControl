@@ -4,11 +4,6 @@ local pi = math.pi
 --Configuration
 local steeringRange = 0.9*pi
 
---Clamp function (no idea where other guys get the clamp)
-function math.Clamp(val, lower, upper)
-    return math.max(lower, math.min(upper, val))
-end
-
 --Main Script
 function script.update(dt)
     local data = ac.getJoypadState()
@@ -70,9 +65,9 @@ function script.update(dt)
 
     local linearLength = math.sqrt( (data.steerStickX^2) + (data.steerStickY^2) )
 
-    local linearMagnitude = math.Clamp( linearLength/maxLength, -1, 1)
+    local linearMagnitude = math.clamp( linearLength/maxLength, -1, 1)
 
-    local steerMagnitude = math.Clamp(rotationMagnitude * linearMagnitude, -1, 1 )
+    local steerMagnitude = math.clamp(rotationMagnitude * linearMagnitude, -1, 1 )
 
     data.steer = steerMagnitude
 end
