@@ -8,6 +8,8 @@ local steeringRange = 0.9*pi
 function script.update(dt)
     local data = ac.getJoypadState()
 
+    local atan = 0
+
     local angleRotation = 0
     if data.steerStickX == 0 then
         goto AfterAngle
@@ -21,20 +23,20 @@ function script.update(dt)
         end
         goto AfterAngle
     end
-    local atan = math.abs(math.atan(data.steerStickX/data.steerStickY))
-    if data.steerStickX > 0 & data.steerStickY > 0 then
+    atan = math.abs(math.atan(data.steerStickX/data.steerStickY))
+    if (data.steerStickX > 0) and (data.steerStickY > 0) then
         angleRotation = atan
         goto AfterAngle
     end
-    if data.steerStickX < 0 & data.steerStickY > 0 then
+    if (data.steerStickX < 0) and (data.steerStickY > 0) then
         angleRotation = -atan
         goto AfterAngle
     end
-    if data.steerStickX > 0 & data.steerStickY < 0 then
+    if (data.steerStickX > 0) and (data.steerStickY < 0) then
         angleRotation = pi - atan
         goto AfterAngle
     end
-    if data.steerStickX < 0 & data.steerStickY < 0 then
+    if (data.steerStickX < 0) and (data.steerStickY < 0) then
         angleRotation = atan - pi
         goto AfterAngle
     end
@@ -44,7 +46,10 @@ function script.update(dt)
 
     local rotationMagnitude = angleRotation / steeringRange
     if rotationMagnitude > 1 then
-        rotationMagnitude = 0
+        rotationMagnitude = 1
+    end
+    if rotationMagnitude < -1 then
+        rotationMagnitude = -1
     end
 
     local linearMagnitude = math.sqrt( (data.steerStickX^2) * (data.steerStickY^2) )
