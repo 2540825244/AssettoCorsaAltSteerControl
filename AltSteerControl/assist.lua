@@ -58,11 +58,11 @@ function script.update(dt)
     end
 
     local maxLength = 1
-    if data.steerStickX > data.steerStickY then
+    if math.abs(data.steerStickX) > math.abs(data.steerStickY) then
         maxLength = math.sqrt( 1 + ( (data.steerStickY / data.steerStickX ) ^2) )
         goto AfterMaxLength
     end
-    if data.steerStickY > data.steerStickX then
+    if math.abs(data.steerStickY) > math.abs(data.steerStickX) then
         maxLength = math.sqrt( 1 + ( (data.steerStickX / data.steerStickY ) ^2) )
     end
 
