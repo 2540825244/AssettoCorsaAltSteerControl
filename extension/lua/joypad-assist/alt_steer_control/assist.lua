@@ -2,7 +2,7 @@
 local pi = math.pi
 
 --Configuration
-local steeringRange = 0.9*pi
+local steeringRange = 0.9*pi --0*pi to 1*pi. The angle which the maximum steering is reached.
 
 --Main Script
 function script.update(dt)
