@@ -57,7 +57,20 @@ function script.update(dt)
         rotationMagnitude = -1
     end
 
-    local linearMagnitude = math.sqrt( (data.steerStickX^2) * (data.steerStickY^2) )
+    local maxLength = 1
+    if data.steerStickX > data.steerStickY then
+        maxLength = math.sqrt( 1 + ( (data.steerStickY / data.steerStickX ) ^2) )
+        goto AfterMaxLength
+    end
+    if data.steerStickY > data.steerStickX then
+        maxLength = math.sqrt( 1 + ( (data.steerStickX / data.steerStickY ) ^2) )
+    end
+
+    ::AfterMaxLength::
+
+    local linearLength = math.sqrt( (data.steerStickX^2) + (data.steerStickY^2) )
+
+    local linearMagnitude = math.Clamp( linearLength/maxLength, -1, 1)
 
     local steerMagnitude = math.Clamp(rotationMagnitude * linearMagnitude, -1, 1 )
 
