@@ -15,7 +15,7 @@ This script, once installed properly, remaps the x and y axes of the driving sti
 
 The second point may be hard to understand due to my inability to describe it, but I would call it rotating the stick. Think of it like the virtual steering wheel on some of the driving games on mobile platforms where you drag the icon in a circular motion to turn the vehicle. A good way to approach this scheme is to just keep the stick on the edge upright, then if you want to turn left just move the stick left and down along the edge. The more you move along the edge the more the steering.
 
-There is also a zone that is on the bottom I set that will have the maximum steering from the "rotation". The angle of the zone is 0.2pi. This can be changed by changing the steeringRange local variable in the script. The higher this value the smaller the zone mentioned before.
+There is also a zone that is on the bottom I set that will have 0 steering. The angle of the zone is 0.2pi. This can be changed by changing the steeringRange local variable in the script. The higher this value the smaller the zone mentioned before.
 
 ## Installation
 ### Requirement
