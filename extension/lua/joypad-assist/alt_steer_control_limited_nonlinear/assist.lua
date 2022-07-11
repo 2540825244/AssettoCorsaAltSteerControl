@@ -56,7 +56,7 @@ function script.update(dt)
         rotationMagnitude = (angleRotation * firstStageSensitivity) / steeringRange
     end
     if math.abs(angleRotation) > (0.5*pi) then
-        rotationMagnitude = (((angleRotation - (0.5*pi)) * secondStageSensitivity) / steeringRange) + (secondStageOffset * math.sign(angleRotation))
+        rotationMagnitude = (((angleRotation - ((0.5*pi) * math.sign(angleRotation))) * secondStageSensitivity) / steeringRange) + (secondStageOffset * math.sign(angleRotation))
     end
 
     local maxLength = 1
