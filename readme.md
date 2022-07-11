@@ -29,6 +29,9 @@ Lastly, open the Content Manager and head to Settings>CUSTOM SHADERS PATCH and o
 
 (The script needs you to already have a control scheme in place that make use of the joystick only for steering)
 
+### Version of the scripts
+There are currently three alternate versions of the script. The one without any suffix is the vanilla one, limiter adds a limit to the speed of turning that can be adjusted in the script. Nonlinear uses a two staged sensitivity system where sensitivity can be lowered for the upper half of the joystick for better control, adjustable in the script by changing local variables.
+
 ## Misc
 You many notice there is another script that has the word Limited at the end. It is just that I tried to add a limit on how fast you can turn the steering wheel as with the normal script it is possible to overcome the laws of physic and pretty much kill the tires by flicking the joystick. However the value of the limit is never tested and may not even be sensible. You can always use that script and change the value yourself though.
 
