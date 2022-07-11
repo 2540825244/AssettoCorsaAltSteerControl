@@ -8,7 +8,7 @@ local steeringSpeedLimit = 6 --Limiter of steering speed in dSteer / second
 local firstStageSensitivity = 0.1 --Sensitivity of first stage (upper hemisphere). 0 to 1. Equals to steer/angleRotation
 
 --Derived Local Variable
-local secondStageOffset = firstStageSensitivity * (0.5*pi)
+local secondStageOffset = ((0.5*pi) * firstStageSensitivity) / steeringRange
 local secondStageSensitivity = (1-secondStageOffset) / (steeringRange - (0.5*pi))
 
 --Main Script
@@ -56,7 +56,7 @@ function script.update(dt)
         rotationMagnitude = (angleRotation * firstStageSensitivity) / steeringRange
     end
     if math.abs(angleRotation) > (0.5*pi) then
-        rotationMagnitude = (((angleRotation - (0.5*pi)) * secondStageSensitivity) / steeringRange) + secondStageOffset
+        rotationMagnitude = (((angleRotation - (0.5*pi)) * secondStageSensitivity) / steeringRange) + (secondStageOffset * math.sign(angleRotation))
     end
 
     local maxLength = 1
