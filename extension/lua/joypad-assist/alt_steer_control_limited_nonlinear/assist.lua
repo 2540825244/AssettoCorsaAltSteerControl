@@ -9,7 +9,7 @@ local firstStageSensitivity = 0.1 --Sensitivity of first stage (upper hemisphere
 
 --Derived Local Variable
 local secondStageOffset = ((0.5*pi) * firstStageSensitivity) / steeringRange
-local secondStageSensitivity = (steeringRange - (0.5*pi)) / (1-secondStageOffset)
+local secondStageSensitivity = (1-secondStageOffset) / ((steeringRange - (0.5*pi))/steeringRange)
 
 --Main Script
 function script.update(dt)
