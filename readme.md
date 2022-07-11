@@ -15,7 +15,7 @@ This script, once installed properly, remaps the x and y axes of the driving sti
 
 The second point may be hard to understand due to my inability to describe it, but I would call it rotating the stick. Think of it like the virtual steering wheel on some of the driving games on mobile platforms where you drag the icon in a circular motion to turn the vehicle. A good way to approach this scheme is to just keep the stick on the edge upright, then if you want to turn left just move the stick left and down along the edge. The more you move along the edge the more the steering.
 
-There is also a zone that is on the bottom I set that will have the maximum steering from the "rotation". The angle of the zone is 0.2pi. This can be changed by changing the steeringRange local variable in the script. The higher this value the smaller the zone mentioned before.
+There is also a zone that is on the bottom I set that will have 0 steering. The angle of the zone is 0.2pi. This can be changed by changing the steeringRange local variable in the script. The higher this value the smaller the zone mentioned before.
 
 ## Installation
 ### Requirement
@@ -35,3 +35,5 @@ You many notice there is another script that has the word Limited at the end. It
 This project is very rushed, you may even see it as a proof of concept. I actually had this concept a long time ago, but it is until hours ago that I realize I could make it into a thing with AC CSP scripts (I was watching Initial D so I picked up this game again btw). I may never update the project ever again but I would try to help whoever encounters a problem related.
 
 In the early thinking process I actually imagined a multi turn system where just like steering wheels you can rotate the stick in one direction multiple revolution to have a higher steering angle. But then I thought this would cause confusion and a hassle to implement I did not made it.
+
+Oh yeah btw if you find out you can never reach the max steering, that may be because you actually have a good controller unlike mine. My controller inputs coordinates of a square, not a circle so that's why I used a max length variable to work out the relative magnitude. If you encounter this problem try changing the max length to 1 manually in the script.
